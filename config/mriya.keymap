@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/keys.h>
 
 #define DEF 0
 #define LWR 1
@@ -18,16 +19,35 @@
 &mt { quick_tap_ms = <200>; };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        change_lang {
+            bindings = <&kt LG(SPACE)>;
+            key-positions = <0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-  &kp ESCAPE      &kp N1  &kp N2    &kp N3     &kp N4           &kp N5       &kp N6     &kp N7          &kp N8     &kp N9                  &kp N0         &kp MINUS
+  &to 1           &kp N1  &kp N2    &kp N3     &kp N4           &kp N5       &kp N6     &kp N7          &kp N8     &kp N9                  &kp N0         &kp MINUS
   &kp GRAVE       &kp Q   &kp W     &kp F      &kp P            &kp G        &kp J      &kp L           &kp U      &kp Y                   &kp SEMICOLON  &kp LBKT
   &kp LCTRL       &kp A   &kp R     &kp S      &kp T            &kp D        &kp H      &kp N           &kp E      &kp I                   &kp O          &mt RCTRL SQT
   &mt LALT EQUAL  &kp Z   &kp X     &kp C      &kp V            &kp B        &kp K      &kp M           &kp COMMA  &kp DOT                 &kp FSLH       &mt RALT BSLH
-                          &kp LGUI  &lt 2 TAB  &mt LSHFT SPACE  &lt 1 RET    &lt 1 ESC  &mt RSHFT BSPC  &lt 2 DEL  &mt RGUI RIGHT_BRACKET
+                          &kp LGUI  &lt 3 TAB  &mt LSHFT SPACE  &lt 2 RET    &lt 2 ESC  &mt RSHFT BSPC  &lt 3 DEL  &mt RGUI RIGHT_BRACKET
+            >;
+        };
+
+        change_lang {
+            bindings = <
+  &to 0         &kp N1  &kp N2    &kp N3   &kp N4     &kp N5       &kp N6   &kp N7    &kp N8     &kp N9    &kp N0    &kp MINUS
+  &kp GRAVE     &kp Q   &kp W     &kp E    &kp R      &kp T        &kp Y    &kp U     &kp I      &kp O     &kp P     &kp LBKT
+  &kp LCTRL     &kp A   &kp S     &kp D    &kp F      &kp G        &kp H    &kp J     &kp K      &kp L     &kp SEMI  &kp APOS
+  &kp LEFT_ALT  &kp Z   &kp X     &kp C    &kp V      &kp B        &kp N    &kp M     &kp COMMA  &kp DOT   &kp FSLH  &kp RBKT
+                        &kp LGUI  &kp TAB  &kp SPACE  &kp ENTER    &kp ESC  &kp BSPC  &trans     &kp RGUI
             >;
         };
 
@@ -37,7 +57,7 @@
   &kp UNDER       &kp F1    &kp F2  &kp F3     &kp F4    &kp F5       &kp F6     &kp F7    &kp F8     &kp F9    &kp F10   &kp F11
   &mt LCTRL PLUS  &kp EXCL  &kp AT  &kp HASH   &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR   &kp LPAR  &kp RPAR  &mt RCTRL MINUS
   &mt LALT EQUAL  &kp N1    &kp N2  &kp N3     &kp N4    &kp N5       &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &trans
-                            &trans  &lt 3 TAB  &trans    &trans       &trans     &trans    &lt 3 DEL  &trans
+                            &trans  &lt 4 TAB  &trans    &trans       &trans     &trans    &lt 4 DEL  &trans
             >;
         };
 
@@ -47,7 +67,7 @@
   &kp KP_NUM       &kp KP_SLASH     &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS    &kp C_VOL_UP  &kp HOME  &kp PSCRN  &kp PG_UP  &kp SLCK         &kp CAPS
   &mt LCTRL EQUAL  &kp KP_MULTIPLY  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS     &kp C_MUTE    &kp LEFT  &kp UP     &kp RIGHT  &kp INS          &mt RCTRL K_APP
   &trans           &kp KP_N0        &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT      &kp C_VOL_DN  &kp END   &kp DOWN   &kp PG_DN  &kp PAUSE_BREAK  &trans
-                                    &trans     &trans     &trans     &lt 3 RET       &lt 3 ESC     &trans    &trans     &trans
+                                    &trans     &trans     &trans     &lt 4 RET       &lt 4 ESC     &trans    &trans     &trans
             >;
         };
 
