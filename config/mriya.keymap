@@ -20,6 +20,24 @@
 / {
     combos { compatible = "zmk,combos"; };
 
+    macros {
+        to_ru: change_language {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&to 1>;
+
+            label = "CHANGE_LANGUAGE";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
