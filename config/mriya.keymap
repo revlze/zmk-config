@@ -18,27 +18,50 @@
 &mt { quick_tap_ms = <200>; };
 
 / {
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        chg_to_ru {
+            bindings = <&to_ru>;
+            key-positions = <48 50>;
+            layers = <0>;
+            timeout-ms = <40>;
+        };
+
+        chg_to_ehg {
+            bindings = <&to_eng>;
+            key-positions = <48 50>;
+            layers = <1>;
+            timeout-ms = <40>;
+        };
+    };
 
     macros {
         to_ru: change_language {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LGUI>,
-                <&macro_tap &kp SPACE>,
-                <&macro_release &kp LGUI>,
-                <&to 1>;
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LGUI &to 1>;
+
             label = "TO_RU";
         };
+
         to_eng: change_language_back {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LGUI>,
-                <&macro_tap &kp SPACE>,
-                <&macro_release &kp LGUI>,
-                <&to 0>;
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LGUI &to 0>;
+
             label = "TO_ENG";
         };
     };
