@@ -46,7 +46,9 @@
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LGUI &to 1>;
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&to 1>;
 
             label = "TO_RU";
         };
@@ -60,7 +62,9 @@
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LGUI &to 0>;
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&to 0>;
 
             label = "TO_ENG";
         };
